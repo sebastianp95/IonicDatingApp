@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  googleMapsAPIKey: 'AIzaSyCpT11KlfTQzxgvuPXkr0TPNNA8N3oZHW0',
-  firebaseAPIKey: 'AIzaSyCpT11KlfTQzxgvuPXkr0TPNNA8N3oZHW0',
-  // AIzaSyCpT11KlfTQzxgvuPXkr0TPNNA8N3oZHW0
+  googleMapsAPIKey: '123example',
+  firebaseAPIKey: '123example',
+
 };
 
 export const firebaseConfig = {
-  apiKey: 'AIzaSyCpT11KlfTQzxgvuPXkr0TPNNA8N3oZHW0',
+  apiKey: '123example',
   authDomain: 'ionic-project-v2.firebaseapp.com',
   databaseURL: 'https://ionic-project-v2.firebaseio.com',
   projectId: 'ionic-project-v2',
