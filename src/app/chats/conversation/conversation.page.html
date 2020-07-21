@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/places/chats'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{name}}<br>
+      <div class="status">Online</div>
+    </ion-title>
+    <ion-avatar slot="end">
+      <img [src]="imageUrl">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="bg"></div>
+
+
+  <!-- [class]="message.username == username ? 'message left' : 'message right'" -->
+
+  <div *ngFor='let message of messages'>
+    <ion-item *ngIf="message.fetchedUserId === userId" lines="none">
+      <!-- slot="userId == message.fetchedUserId ? 'start' : 'end" -->
+      <ion-badge color="secondary" slot="end">{{ message.message}}
+        <ion-note color="medium">21:16 <ion-icon name="checkmark-done-outline">
+
+          </ion-icon>
+        </ion-note>
+      </ion-badge>
+    </ion-item>
+    <ion-item *ngIf="message.fetchedUserId !== userId" lines="none">
+      <!-- slot="userId == message.fetchedUserId ? 'start' : 'end" -->
+      <ion-badge color="light" slot="start">{{ message.message}}
+        <ion-note color="medium">21:16 <ion-icon name="checkmark-done-outline">
+
+          </ion-icon>
+        </ion-note>
+      </ion-badge>
+    </ion-item>
+  </div>
+
+
+
+
+  <!-- <div>
+      <ion-item lines="none">
+        <ion-badge color="light" slot="start">Plutôt bien merci <ion-note color="medium">21:17</ion-note></ion-badge>
+      </ion-item>
+    </div> -->
+
+
+
+
+
+</ion-content>
+
+
+<!-- <ion-item lines="none">
+  <ion-badge color="secondary" slot="end">Hey Luke comment ça va ?! <ion-note color="medium">21:16 <ion-icon name="checkmark-done-outline"></ion-icon></ion-note></ion-badge>
+</ion-item>
+
+<ion-item lines="none">
+  <ion-badge color="light" slot="start">Plutôt bien merci <ion-note color="medium">21:17</ion-note></ion-badge>
+</ion-item> -->
+
+<ion-footer>
+  <ion-toolbar>
+  
+    <ion-buttons slot="start">
+      <ion-button fill="outline" shape="round" size="small">
+        <ion-icon slot="icon-only" color="primary" name="send-outline" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <form #m="ngForm" >
+    
+      <ion-buttons slot="end">
+      <ion-input placeholder="message" [(ngModel)]="newMsg" name="msg" required (keydown.enter)="submit(chatId)"></ion-input>
+
+      <!-- <ion-input type="newMsg" ngModel name="newMsg" required minlength="1" #messageCtrl="ngModel"></ion-input> -->
+     
+      <ion-button  color="primary" size="small" (click)="submit(chatId)" [disabled]="!m.valid">Send</ion-button>
+    </ion-buttons>
+    </form>
+
+  </ion-toolbar>
+</ion-footer>

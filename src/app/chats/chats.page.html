@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"> </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Chats</ion-title>
+</ion-toolbar>
+<ion-toolbar color="white">
+  <ion-searchbar></ion-searchbar>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-list *ngIf="!isLoading && profiles.length > 0">
+    <ion-item-sliding *ngFor="let profile of profiles" #slidingItem>
+      <app-chat-item [profile]="profile" ></app-chat-item>
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="onEdit(chat.id, slidingItem)">
+          <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options> 
+    </ion-item-sliding>
+  </ion-list> -->
+
+  
+  <ion-list *ngIf="!isLoading && chats.length > 0">
+    <ion-item-sliding *ngFor="let chat of chats" #slidingItem>
+      <app-chat-item  [chat]="chat" ></app-chat-item>
+      <!-- <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="onEdit(chat.id, slidingItem)">
+          <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>  -->
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

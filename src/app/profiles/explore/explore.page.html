@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"> </ion-menu-button>
+    </ion-buttons>
+    <ion-title>explore</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/profiles/new-profile">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="card_bg_box">
+    <div class="card_bg_1">
+      <ion-item  *ngFor="let result of results">
+        <ion-label>{{ result }}</ion-label>
+      </ion-item>
+    </div>
+    <div class="card_bg_2"></div>
+  </div>
+
+  <sw-card-wrapper #cardWrapper>
+    <div class="card" *ngFor="let profile of relevantProfiles, let index = index"
+         [class.visible]="profile.visible" [class.hidden]="!profile.visible"
+         swSwipeable
+         [width]="350"
+         [height]="500"
+         [orientation]="'x'"
+         (swiped)="swiped($event, index)">
+      <img [src]="profile.imageUrl" [alt]="profile.name">
+      <h2>{{profile.name}}, {{profile.age}}</h2>
+    </div>
+  </sw-card-wrapper>
+  <!-- <sw-card-wrapper #cardWrapper>
+    <div class="card" *ngFor="let avatar of avatars, let index = index"
+         [class.visible]="avatar.visible" [class.hidden]="!avatar.visible"
+         swSwipeable
+         [width]="350"
+         [height]="500"
+         [orientation]="'x'"
+         (swiped)="swiped($event, index)">
+      <img [src]="avatar.image" [alt]="avatar.name">
+      <h2>{{avatar.name}}, {{avatar.age}}</h2>
+    </div>
+  </sw-card-wrapper> -->
+
+<div class="button_box">
+  <ion-button class="small_button" mode="ios" shape="round" fill="outline" >
+    <ion-icon color="warning" name="refresh"></ion-icon>
+  </ion-button>
+  <ion-button (click)="swipeleft()" mode="ios" class="large_button" shape="round" fill="outline" >
+    <ion-icon color="danger" name="close"></ion-icon>
+  </ion-button>
+  <div class="space"></div>
+  <ion-button (click)="swiperight()" mode="ios" class="large_button" shape="round" fill="outline">
+    <ion-icon color="success" name="heart"></ion-icon>
+  </ion-button>
+  <ion-button class="small_button" mode="ios" shape="round" fill="outline">
+    <ion-icon color="primary" name="location-sharp"></ion-icon>
+  </ion-button>
+</div>
+</ion-content>
