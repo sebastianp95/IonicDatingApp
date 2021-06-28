@@ -61,7 +61,7 @@ export class ChatItemComponent implements OnInit {
         take(1), switchMap(match => {
           this.profileId = match.matchedUserId;
           this.chatsService.getChat(match.id).subscribe(chat => {
-            console.log('CHAT ITEM  message' + chat.message);
+            console.log('CHAT ITEM  message' + chat.messages);
           });
           return this.profilesService
             .getProfile(this.profileId);
